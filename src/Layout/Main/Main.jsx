@@ -1,8 +1,11 @@
+import { Outlet } from "react-router-dom";
+import Footer from "../../Pages/Footer/Footer";
 
 const Main = () => {
     return (
         <div>
-            <h1>This is home</h1>
+            <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };
