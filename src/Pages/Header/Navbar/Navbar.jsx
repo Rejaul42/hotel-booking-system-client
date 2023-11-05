@@ -4,9 +4,7 @@ const Navbar = () => {
     const navItems = <>
         <li><NavLink className='hover:text-white hover:bg-stone-700' to="/">Home</NavLink></li>
         <li><NavLink className='hover:text-white hover:bg-stone-700' to="/rooms">Rooms</NavLink></li>
-        <li><NavLink className='hover:text-white hover:bg-stone-700' to="/about">About</NavLink></li>
-        <li><NavLink className='hover:text-white hover:bg-stone-700' to="/news">News</NavLink></li>
-        <li><NavLink className='hover:text-white hover:bg-stone-700' to="/contact">Contact</NavLink></li>
+        <li><NavLink className='hover:text-white hover:bg-stone-700' to="/mybooking">My Booking</NavLink></li>
 
     </>
 
