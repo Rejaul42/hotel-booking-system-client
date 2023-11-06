@@ -1,7 +1,7 @@
 import { FaCcVisa, FaCcPaypal, FaCcMastercard, FaCcStripe } from 'react-icons/fa';
 const News = () => {
     return (
-        <div className='my-8'>
+        <div className='my-16'>
             <div id="slide2" className="carousel-item relative w-full ">
                 <img src="https://i.ibb.co/T1vjr54/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table.jpg" className="w-full" />
                 <div className="absolute flex gap-4 lg:gap-10 items-center h-full bg-gradient-to-r from-[#151510] to-[rgba(21, 21, 21, 0.00)] left-0 right-5 text-white">
