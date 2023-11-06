@@ -1,8 +1,53 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
+import { useContext, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Login = () => {
+    const [errorMessage, setErrorMessage] = useState();
+    const navigate = useNavigate()
+    const { signInUser, signInGoogle } = useContext(AuthContext);
+
+    const handleGoogleSignIn = () => {
+        signInGoogle()
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                Swal.fire({
+                    title: "Good job!",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+                navigate('/')
+            })
+            .catch((error) => {
+                setErrorMessage(error.message)
+            })
+    }
+
+    const handleSignIn = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+        signInUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                Swal.fire({
+                    title: "Good job!",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+                navigate('/')
+            })
+            .catch((error) => {
+                setErrorMessage(error.message)
+            })
+    }
     return (
         <div>
             <div className="carousel-item relative w-full ">
@@ -19,9 +64,9 @@ const Login = () => {
                         <div className="  bg-gradient-to-r from-[#281142] to-[rgba(18, 18, 18, 0.80)] text-white p-16">
                             <div className="lg:space-y-4">
                                 <Link to="/"><a className="btn btn-ghost normal-case text-xl"><img className="h-12 w-12" src="https://i.ibb.co/9N6Hz3c/times-square-9275290.png" alt="" />HOTEL MOTEL</a></Link>
-                                <form className="">
+                                <form onSubmit={handleSignIn} className="">
                                     <p className="my-4 text-4xl text-center font-semibold">Sign In</p>
-                                    
+
                                     <div className="">
                                         <label className="label">
                                             <span className="label-text text-white">Email</span>
@@ -35,6 +80,9 @@ const Login = () => {
                                         <input type="password" placeholder="password" name="password" className="input input-bordered text-black" required />
 
                                     </div>
+                                    {
+                                        errorMessage && <p className="text-red-600 font-semibold">{errorMessage}</p>
+                                    }
                                     <div className="form-control mt-6">
                                         <button className="btn bg-stone-500 hover:bg-stone-700 text-white">Sign In</button>
                                     </div>
@@ -44,7 +92,7 @@ const Login = () => {
                                             <a href="#" className=" text-white">Forgot password?</a>
                                         </label>
                                     </div>
-                                    <div className="mt-8 flex gap-2 items-center text-2xl justify-center btn btn-outline text-white">
+                                    <div onClick={handleGoogleSignIn} className="mt-8 flex gap-2 items-center text-2xl justify-center btn btn-outline text-white">
                                         <FcGoogle></FcGoogle>
                                         <p>Google Sign In</p>
                                     </div>
