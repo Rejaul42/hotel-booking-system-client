@@ -1,0 +1,98 @@
+[
+    {
+      "room_type": "Deluxe King Room",
+      "description": "Spacious and elegant, our Deluxe King Room offers a comfortable king-size bed, a private balcony, and a stunning city view. Perfect for a romantic getaway.",
+      "room_size": "400 sq. ft",
+      "price_per_night": 250,
+      "occupancy": 2,
+      "amenities": ["King-size bed", "Balcony", "City view", "En-suite bathroom", "Mini-bar"],
+      "image_url1": "https://i.ibb.co/Tg66F45/ctm-deluxe-king-room.jpg",
+      "image_url2": "https://i.ibb.co/sJ9cBz9/tower-deluxe-king.jpg",
+      "image_url3": "https://i.ibb.co/X3fDPYb/QT-Perth-QT-Perth-QT-Deluxe-King-Bed-and-Window-2.jpg",
+      "availability": "Available",
+      "reviews": [
+        { "user": "Guest123", "rating": 4.5, "comment": "Beautiful room with a great view!" },
+        { "user": "Traveler456", "rating": 5.0, "comment": "Loved the balcony and comfy bed." }
+      ],
+      "special_offer": "Stay 3 nights, get the 4th night free."
+    },
+    {
+      "room_type": "Family Suite",
+      "description": "Our Family Suite is ideal for families, featuring a separate living area, two bedrooms, and a kitchenette. Enjoy quality time together.",
+      "room_size": "700 sq. ft",
+      "price_per_night": 350,
+      "occupancy": 4,
+      "amenities": ["Two bedrooms", "Living area", "Kitchenette", "En-suite bathrooms", "TV"],
+      "image_url1": "https://i.ibb.co/MRwkH4g/junior-family-suites-1.jpg",
+      "image_url2": "https://twoseasonsresorts.com/boracay/wp-content/uploads/2017/02/Family-Grand-Suite-1.jpg",
+      "image_url3": "https://hotelnikkobali-benoabeach.com/wp-content/uploads/2020/08/heroOVS-Premier-Family_Hotel-Nikko-Bali-2.jpg",
+      "availability": "Available",
+      "reviews": [
+        { "user": "FamilyVacation", "rating": 4.8, "comment": "Spacious and perfect for our family." }
+      ],
+      "special_offer": "10% off for bookings of 7 nights or more."
+    },
+    {
+      "room_type": "Ocean View Suite",
+      "description": "Wake up to the sound of waves in our Ocean View Suite. This spacious room offers a breathtaking ocean view and a private terrace.",
+      "room_size": "550 sq. ft",
+      "price_per_night": 300,
+      "occupancy": 2,
+      "amenities": ["Private terrace", "Ocean view", "King-size bed", "En-suite bathroom", "Mini-bar"],
+      "image_url1": "https://www.turtlebayresort.com/sites/default/files/2022-04/Suites_Full_Balcony_web.jpg",
+      "image_url2": "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/231/2020/05/06025033/Luxury-Ocean-View-Room-1-1170x780.jpg",
+      "image_url3": "https://images.squarespace-cdn.com/content/v1/5df776d432319a3a9afc11a9/1599754555937-7P2CPLYWL38FRINYB3Q0/1.2+Alma+-+Ocean+View+Suite+1+Bedroom.jpg",
+      "availability": "Available",
+      "reviews": [],
+      "special_offer": "15% off for last-minute bookings within 48 hours of arrival."
+    },
+    {
+      "room_type": "Standard Double Room",
+      "description": "Our comfortable Standard Double Room features two double beds and all the essential amenities for a pleasant stay.",
+      "room_size": "300 sq. ft",
+      "price_per_night": 150,
+      "occupancy": 2,
+      "amenities": ["Two double beds", "En-suite bathroom", "TV", "Free Wi-Fi"],
+      "image_url1": "https://www.hotelgoldencrown.com/files/hotel/hotel-a/Standard.jpg",
+      "image_url2": "https://www.residenthotels.com/wp-content/uploads/2022/06/The-Resident-Victoria-double-room-1400x928.jpg",
+      "image_url3": "https://www.hoteljustus.lv/wp-content/uploads/2016/07/Hotel-Justus-Standard-Twin-2b-1140x699.jpg",
+      "availability": "Available",
+      "reviews": [
+        { "user": "SoloTraveler", "rating": 4.0, "comment": "Cozy and clean room." }
+      ],
+      "special_offer": "Weekend getaway package: Stay 2 nights, get the 3rd night 50% off."
+    },
+    {
+      "room_type": "Luxury Villa",
+      "description": "Experience ultimate luxury in our private villa with a pool. It includes a spacious bedroom, a living area, and a private pool.",
+      "room_size": "1200 sq. ft",
+      "price_per_night": 600,
+      "occupancy": 2,
+      "amenities": ["Private pool", "King-size bed", "Living area", "En-suite bathroom", "Private garden"],
+      "image_url1": "https://www.ataman-resort.com/wp-content/uploads/2018/07/7-Villa-Luxury-Master-bedroom-1170x680.jpg",
+      "image_url2": "https://www.home-designing.com/wp-content/uploads/2018/12/luxury-bedroom.jpg",
+      "image_url3": "https://www.realista.com/wp-content/uploads/2021/10/THE-VIEW-new-luxury-villas-for-sale-Estepona_Realista-Qualtily-Real-Estate-Marbella-3.jpg.webp",
+      "availability": "Available",
+      "reviews": [
+        { "user": "LuxuryLover", "rating": 4.9, "comment": "Pure indulgence and relaxation." }
+      ],
+      "special_offer": "Honeymoon package: Special rates and complimentary champagne for honeymooners."
+    },
+    {
+      "room_type": "Executive Suite",
+      "description": "Perfect for business travelers, our Executive Suite offers a spacious work area, a comfortable king-size bed, and city views.",
+      "room_size": "500 sq. ft",
+      "price_per_night": 280,
+      "occupancy": 2,
+      "amenities": ["Work desk", "King-size bed", "City view", "En-suite bathroom", "Mini-bar"],
+      "image_url1": "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/210/2017/11/27032018/tentrem-hotel-yogyakarta-home-image271.jpg",
+      "image_url2": "https://image-tc.galaxy.tf/wijpeg-8ncxjl009abgs25xovml7by60/executive-suite-living-room-1920-x-1080_wide.jpg?crop=0%2C0%2C1920%2C1080&width=1200",
+      "image_url3": "https://www.grandinnakuta.com/wp-content/uploads/2020/12/8L4A7226b-scaled.jpg",
+      "availability": "Available",
+      "reviews": [
+        { "user": "BusinessTraveler", "rating": 4.7, "comment": "Great room for work and relaxation." }
+      ],
+      "special_offer": "Business traveler package: Free airport transfer and late checkout."
+    }
+  ]
+  

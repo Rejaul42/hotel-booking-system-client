@@ -1,6 +1,22 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { MdLogout } from "react-icons/md";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+
     const navItems = <>
         <li><NavLink className='hover:text-white hover:bg-stone-700' to="/">Home</NavLink></li>
         <li><NavLink className='hover:text-white hover:bg-stone-700' to="/rooms">Rooms</NavLink></li>
@@ -29,7 +45,29 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <a className="btn font-medium"><Link to="/login">Sign In</Link></a>
+                    <div>
+                        {
+                            user ? <>
+
+                                <div className="flex items-center gap-2">
+                                    <div>
+                                        {
+                                            user.photoURL ? <img className="rounded-full h-12" src={user.photoURL} alt="" /> : <p></p>
+                                        }
+                                    </div>
+                                    <span>
+                                        {
+                                            user.displayName ? <p>{user.displayName}</p> : <p></p>
+                                        }
+                                    </span>
+                                    <button className="text-xl ml-2 border p-2 rounded-md text-white" onClick={handleLogOut}><Link to="/login"><MdLogout></MdLogout></Link> </button>
+                                </div>
+                                
+
+                            </> : <a className="btn font-medium"><Link to="/login">Sign In</Link></a>
+                        }
+
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,10 +1,12 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
-
+import Swal from 'sweetalert2'
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext)
+    const [errorMessage, setErrorMessage] = useState();
+    const navigate = useNavigate()
     const handleSignUp = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -14,13 +16,19 @@ const SignUp = () => {
         console.log(name, email, password)
 
         createUser(email, password)
-        .then((result) =>{
-            const user = result.user;
-            console.log(user)
-        })
-        .catch((error) =>{
-            console.log(error.message)
-        })
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                Swal.fire({
+                    title: "Good job!",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+                navigate('/')
+            })
+            .catch((error) => {
+                setErrorMessage(error.message)
+            })
     }
     return (
         <div>
@@ -59,6 +67,9 @@ const SignUp = () => {
                                         <input type="password" placeholder="password" name="password" className="input input-bordered text-black" required />
 
                                     </div>
+                                    {
+                                        errorMessage && <p className="text-red-600 font-semibold">{errorMessage}</p>
+                                    }
                                     <div className="form-control mt-6">
                                         <button className="btn bg-stone-500 hover:bg-stone-700 text-white">Sign Up</button>
                                     </div>
