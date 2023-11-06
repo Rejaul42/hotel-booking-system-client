@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
+    const handleSignUp = (e) =>{
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password)
+    }
     return (
         <div>
             <div className="carousel-item relative w-full ">
@@ -18,7 +26,7 @@ const SignUp = () => {
                         <div className="  bg-gradient-to-r from-[#281142] to-[rgba(18, 18, 18, 0.80)] text-white p-16">
                             <div className="lg:space-y-4">
                                 <Link to="/"><a className="btn btn-ghost normal-case text-xl"><img className="h-12 w-12" src="https://i.ibb.co/9N6Hz3c/times-square-9275290.png" alt="" />HOTEL MOTEL</a></Link>
-                                <form className="">
+                                <form onSubmit={handleSignUp} className="">
                                     <p className="my-4 text-4xl text-center font-semibold">Sign Up</p>
                                     <div className="">
                                         <label className="label">
