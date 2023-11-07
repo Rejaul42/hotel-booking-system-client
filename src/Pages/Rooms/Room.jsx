@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'; // ES6
 import { CgProfile } from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 
 const Room = ({ room }) => {
     const { _id, room_type, image_url1, occupancy } = room
@@ -10,7 +11,7 @@ const Room = ({ room }) => {
                 <div className="absolute text-white -mt-36 ">
                     <div className="p-4  justify-around items-center gap-4">
                         <h2 className=" text-2xl">{room_type}</h2>
-                        <button className="btn btn-outline text-white">See Details</button>
+                        <button className="btn btn-outline text-white"><Link to={`${room_type}/${_id}`}>See Details</Link></button>
                         <p className='flex gap-2 items-center text-2xl'><CgProfile></CgProfile> {occupancy} Guests</p>
                     </div>
                 </div>
