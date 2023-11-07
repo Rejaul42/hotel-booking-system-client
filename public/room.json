@@ -43,7 +43,9 @@
       "image_url2": "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/231/2020/05/06025033/Luxury-Ocean-View-Room-1-1170x780.jpg",
       "image_url3": "https://images.squarespace-cdn.com/content/v1/5df776d432319a3a9afc11a9/1599754555937-7P2CPLYWL38FRINYB3Q0/1.2+Alma+-+Ocean+View+Suite+1+Bedroom.jpg",
       "availability": "Available",
-      "reviews": [],
+      "reviews": [
+        { "user": "BusinessTraveler", "rating": 4.7, "comment": "Great room for work and relaxation." }
+      ],
       "special_offer": "15% off for last-minute bookings within 48 hours of arrival."
     },
     {
