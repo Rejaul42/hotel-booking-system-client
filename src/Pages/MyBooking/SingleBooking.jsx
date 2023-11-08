@@ -23,7 +23,7 @@ const SingleBooking = ({ booking, setBookings, bookings }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/booked/${id}`, {
+                fetch(`https://hotel-booking-system-server.vercel.app/booked/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

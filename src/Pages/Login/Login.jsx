@@ -40,7 +40,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 const loggedUser = {email};
-                axios.post('http://localhost:5000/jwt', loggedUser, {
+                axios.post('https://hotel-booking-system-server.vercel.app/jwt', loggedUser, {
                     withCredentials: true
                 })
                 .then(res =>{

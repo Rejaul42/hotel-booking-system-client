@@ -36,7 +36,7 @@ const RoomDetails = () => {
         const data = { room_type, room_size, description, price_per_night, image_url1, email, checkIn, checkOut }
         console.log(data)
 
-        fetch("http://localhost:5000/booked", {
+        fetch("https://hotel-booking-system-server.vercel.app/booked", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

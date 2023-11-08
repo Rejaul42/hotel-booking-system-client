@@ -7,6 +7,7 @@ import { useLoaderData } from 'react-router-dom';
 const Rooms = () => {
     const loadData = useLoaderData()
     const [loadedRooms, setLoadedRooms] = useState(loadData);
+    console.log(loadedRooms)
     const compare = (a, b, ascendingOrder) => {
         if (a < b) {
             return ascendingOrder ? -1 : 1;
