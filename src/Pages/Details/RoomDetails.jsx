@@ -12,15 +12,12 @@ import Swal from "sweetalert2";
 const RoomDetails = () => {
     // const [value, setValue] = React.useState<Number | null>(2);
     const { user } = useContext(AuthContext)
-    console.log(user?.email)
     const email = user?.email;
     const loadedRoom = useLoaderData()
     console.log(loadedRoom)
     const { room_type, description, room_size, price_per_night, occupancy, amenities, image_url1, image_url2, image_url3, availability, reviews, special_offer } = loadedRoom;
 
-    const data = {
-        room_type, room_size, description, price_per_night, email
-    }
+    
     const handleBookNow = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -28,9 +25,10 @@ const RoomDetails = () => {
         const checkOut = form.checkOut.value;
         console.log(checkIn, checkOut)
 
-        const data = { room_type, room_size, description, price_per_night, email, checkIn, checkOut }
+        const data = { room_type, room_size, description, price_per_night, image_url1, email, checkIn, checkOut }
+        console.log(data)
 
-        fetch("https://technology-and-electronics-server-ruddy.vercel.app/cart", {
+        fetch("http://localhost:5000/booked", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
