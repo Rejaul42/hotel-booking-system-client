@@ -1,11 +1,72 @@
+import PropTypes from 'prop-types'; // ES6
+import { RiDeleteBin5Fill } from 'react-icons/ri';
+import { AiOutlineEdit } from 'react-icons/ai';
+import Swal from 'sweetalert2';
 
+const SingleBooking = ({ booking, setBookings, bookings }) => {
+    const { _id, room_type, price_per_night, image_url1, checkIn, checkOut } = booking;
 
-const SingleBooking = () => {
+    const handleDelete = (id) =>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/booked/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Product has been deleted.',
+                                'success'
+                            )
+                            const remeining = bookings?.filter(item => item._id !==_id)
+                            setBookings(remeining)
+                        }
+                    })
+            }
+        })
+
+    }
     return (
         <div>
-            
+            <div className=" hero">
+                <div className="flex-col lg:flex-row gap-20">
+                    <img src={image_url1} className="max-w-lg rounded-lg shadow-xl" />
+                    <div>
+                        <h1 className="text-5xl font-bold mt-8">{room_type}</h1>
+                        <div className="py-6 space-y-4 text-white font-medium text-xl">
+                            <p className='bg-stone-500 rounded-md p-3'>Check-In: {checkIn}</p>
+                            <p className='bg-stone-500 rounded-md p-3'>Check-Out: {checkOut}</p>
+                        </div>
+                        <div>
+                            <p className='bg-orange-200 w-40 mb-6 p-3 rounded-md text-xl font-medium'>Price: ${price_per_night}</p>
+                        </div>
+                        <div className='flex gap-6'>
+                            <button className="btn btn-outline text-2xl"><AiOutlineEdit></AiOutlineEdit></button>
+                            <button onClick={() => handleDelete(_id)} className="btn btn-outline text-2xl"><RiDeleteBin5Fill></RiDeleteBin5Fill></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
+
+SingleBooking.propTypes = {
+    booking: PropTypes.node,
+    bookings: PropTypes.array,
+    setBookings: PropTypes.array
+}
 
 export default SingleBooking;

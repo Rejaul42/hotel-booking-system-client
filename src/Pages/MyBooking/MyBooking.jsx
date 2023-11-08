@@ -6,16 +6,21 @@ const MyBooking = () => {
     const {user} = useContext(AuthContext);
 
     const [bookings, setBookings] = useState([])
-    const url = `http://localhost:5000/booked?email=${user.email}`
+    const url = `http://localhost:5000/booked?email=${user?.email}`
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())
         .then(data => setBookings(data))
     },[url])
     return (
-        <div>
+        <div className="gap-6 my-12 grid grid-cols-1 lg:grid-cols-2">
             {
-                bookings.map(booking => <SingleBooking key={booking._id} booking={booking}></SingleBooking>)
+                bookings.map(booking => <SingleBooking 
+                    key={booking._id} 
+                    booking={booking}
+                    setBookings={setBookings}
+                    bookings={bookings}
+                    ></SingleBooking>)
             }
         </div>
     );
