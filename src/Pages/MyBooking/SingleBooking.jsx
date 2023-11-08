@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'; // ES6
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { AiOutlineEdit } from 'react-icons/ai';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const SingleBooking = ({ booking, setBookings, bookings }) => {
     const { _id, room_type, price_per_night, image_url1, checkIn, checkOut } = booking;
@@ -53,7 +54,7 @@ const SingleBooking = ({ booking, setBookings, bookings }) => {
                             <p className='bg-orange-200 w-40 mb-6 p-3 rounded-md text-xl font-medium'>Price: ${price_per_night}</p>
                         </div>
                         <div className='flex gap-6'>
-                            <button className="btn btn-outline text-2xl"><AiOutlineEdit></AiOutlineEdit></button>
+                            <button className="btn btn-outline text-2xl"><Link to={`/${room_type}/${_id}`}><AiOutlineEdit></AiOutlineEdit></Link></button>
                             <button onClick={() => handleDelete(_id)} className="btn btn-outline text-2xl"><RiDeleteBin5Fill></RiDeleteBin5Fill></button>
                         </div>
                     </div>
