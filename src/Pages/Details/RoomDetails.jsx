@@ -5,7 +5,7 @@ import { BiBed } from 'react-icons/bi';
 import { BsPersonCircle } from 'react-icons/bs';
 // material ui
 import Rating from '@mui/material/Rating';
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -17,7 +17,15 @@ const RoomDetails = () => {
     console.log(loadedRoom)
     const { room_type, description, room_size, price_per_night, occupancy, amenities, image_url1, image_url2, image_url3, availability, reviews, special_offer } = loadedRoom;
 
-    
+    const [bookings, setBookings] = useState([])
+    const url = `http://localhost:5000/booked?email=${user?.email}`
+    useEffect(()=>{
+        fetch(url)
+        .then(res=>res.json())
+        .then(data => setBookings(data))
+    },[url])
+    const comp = bookings?.find(booking => booking.room_type == room_type)
+
     const handleBookNow = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -82,14 +90,18 @@ const RoomDetails = () => {
                         <div className="flex justify-around gap-4">
                             <div className="space-y-4 bg-stone-900 p-4 rounded-lg">
                                 <p className="text-xl text-white">Check-In </p>
-                                <input className="px-4 py-3 rounded-md" type="date" name="checkIn" id="" />
+                                <input className="px-4 py-3 rounded-md" type="date" name="checkIn" id="" required />
                             </div>
                             <div className="space-y-4 bg-stone-900 p-4 rounded-lg">
                                 <p className="text-xl text-white">Check-Out </p>
-                                <input className="px-4 py-3 rounded-md" type="date" name="checkOut" id="" />
+                                <input className="px-4 py-3 rounded-md" type="date" name="checkOut" id="" required />
                             </div>
                         </div>
-                        <button className="btn w-full mt-8">Book Now</button>
+                        {
+                            
+                            comp? <button className="btn w-full mt-8 hidden">Book Now</button>: <button className="btn w-full mt-8 ">Book Now</button>
+                        }
+                        {/* <button className="btn w-full mt-8">Book Now</button> */}
                     </form>
                 </div>
             </div>
