@@ -3,6 +3,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
+import axios from "axios";
 
 
 const Login = () => {
@@ -38,12 +39,22 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user)
-                Swal.fire({
-                    title: "Good job!",
-                    text: "You clicked the button!",
-                    icon: "success"
-                });
-                navigate(location?.state ? location?.state : '/')
+                const loggedUser = {email};
+                axios.post('http://localhost:5000/jwt', loggedUser, {
+                    withCredentials: true
+                })
+                .then(res =>{
+                    console.log(res.data)
+                    if(res.data.success){
+                        Swal.fire({
+                            title: "Good job!",
+                            text: "You clicked the button!",
+                            icon: "success"
+                        });
+                        navigate(location?.state ? location?.state : '/')
+                    }
+                })
+                
             })
             .catch((error) => {
                 setErrorMessage(error.message)

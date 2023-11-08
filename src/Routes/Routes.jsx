@@ -8,12 +8,14 @@ import RoomDetails from "../Pages/Details/RoomDetails";
 import MyBooking from "../Pages/MyBooking/MyBooking";
 import PrivateRoute from "./PrivetRoute";
 import UpdateBook from "../Pages/UpdateBook/UpdateBook";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",

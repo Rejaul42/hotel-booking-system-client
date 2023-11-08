@@ -15,7 +15,7 @@ const RoomDetails = () => {
     const email = user?.email;
     const loadedRoom = useLoaderData()
     console.log(loadedRoom)
-    const { room_type, description, room_size, price_per_night, occupancy, amenities, image_url1, image_url2, image_url3, availability, reviews, special_offer } = loadedRoom;
+    const { room_type, description, room_size, price_per_night, occupancy, amenities, image_url1, image_url2, image_url3, reviews, special_offer } = loadedRoom;
 
     const [bookings, setBookings] = useState([])
     const url = `http://localhost:5000/booked?email=${user?.email}`
@@ -99,7 +99,7 @@ const RoomDetails = () => {
                         </div>
                         {
                             
-                            comp? <button className="btn w-full mt-8 hidden">Book Now</button>: <button className="btn w-full mt-8 ">Book Now</button>
+                            comp? <p className="mt-6 text-2xl bg-red-600 text-center text-white">Unavailable</p>: <button className="btn w-full mt-8 ">Book Now</button>
                         }
                         {/* <button className="btn w-full mt-8">Book Now</button> */}
                     </form>
@@ -125,7 +125,7 @@ const RoomDetails = () => {
                     {/* features */}
                     <div className="flex justify-around mt-4">
                         {
-                            amenities.map(itm =>
+                            amenities?.map(itm =>
                                 <div key={itm.index}>
                                     <div>
                                         <li>{itm}</li>
