@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 
 const SingleBooking = ({ booking, setBookings, bookings }) => {
     const { _id, room_type, price_per_night, image_url1, checkIn, checkOut } = booking;
+    let date1 = new Date()
+    let date2 = new Date(checkIn);
+    let compareTime = date2.getDate() - date1.getDate()
+    console.log(date1.getDate(), date2.getTime(), compareTime)
 
     const handleDelete = (id) =>{
         Swal.fire({
@@ -25,14 +29,24 @@ const SingleBooking = ({ booking, setBookings, bookings }) => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
-                        if (data.deletedCount > 0) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your Product has been deleted.',
-                                'success'
-                            )
-                            const remeining = bookings?.filter(item => item._id !==_id)
-                            setBookings(remeining)
+                        if(compareTime <= 2){
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Something went wrong, Time expired!",
+                                footer: '<a href="#">Why do I have this issue?</a>'
+                              });
+                        }
+                        else{
+                            if (data.deletedCount > 0) {
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your Product has been deleted.',
+                                    'success'
+                                )
+                                const remeining = bookings?.filter(item => item._id !==_id)
+                                setBookings(remeining)
+                            }
                         }
                     })
             }
@@ -45,7 +59,7 @@ const SingleBooking = ({ booking, setBookings, bookings }) => {
                 <div className="flex-col lg:flex-row gap-20">
                     <img src={image_url1} className="max-w-lg rounded-lg shadow-xl" />
                     <div>
-                        <h1 className="text-5xl font-bold mt-8">{room_type}</h1>
+                        <h1 className="text-3xl font-bold mt-8">{room_type}</h1>
                         <div className="py-6 space-y-4 text-white font-medium text-xl">
                             <p className='bg-stone-500 rounded-md p-3'>Check-In: {checkIn}</p>
                             <p className='bg-stone-500 rounded-md p-3'>Check-Out: {checkOut}</p>
