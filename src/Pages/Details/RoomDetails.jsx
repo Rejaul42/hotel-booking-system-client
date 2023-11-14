@@ -18,7 +18,7 @@ const RoomDetails = () => {
     const { room_type, description, room_size, price_per_night, occupancy, amenities, image_url1, image_url2, image_url3, reviews, special_offer } = loadedRoom;
 
     const [bookings, setBookings] = useState([])
-    const url = `http://localhost:5000/booked?email=${user?.email}`
+    const url = `https://hotel-booking-system-server.vercel.app/booked`
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())

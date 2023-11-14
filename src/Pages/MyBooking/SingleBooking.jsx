@@ -21,7 +21,16 @@ const SingleBooking = ({ booking, setBookings, bookings }) => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
-            if (result.isConfirmed) {
+            if(compareTime <= 2){
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong, Time expired!",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                  });
+                  return;
+            }
+            else if (result.isConfirmed) {
 
                 fetch(`https://hotel-booking-system-server.vercel.app/booked/${id}`, {
                     method: "DELETE"
@@ -29,15 +38,8 @@ const SingleBooking = ({ booking, setBookings, bookings }) => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
-                        if(compareTime <= 2){
-                            Swal.fire({
-                                icon: "error",
-                                title: "Oops...",
-                                text: "Something went wrong, Time expired!",
-                                footer: '<a href="#">Why do I have this issue?</a>'
-                              });
-                        }
-                        else{
+                        
+                        
                             if (data.deletedCount > 0) {
                                 Swal.fire(
                                     'Deleted!',
@@ -47,7 +49,7 @@ const SingleBooking = ({ booking, setBookings, bookings }) => {
                                 const remeining = bookings?.filter(item => item._id !==_id)
                                 setBookings(remeining)
                             }
-                        }
+                        
                     })
             }
         })

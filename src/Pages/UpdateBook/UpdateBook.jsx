@@ -6,6 +6,7 @@ const UpdateBook = () => {
     const loadedData = useLoaderData()
     console.log(loadedData)
     const {_id, checkIn, checkOut } = loadedData;
+    console.log(checkIn, checkOut)
 
     const handleUpdate = (e) => {
         e.preventDefault()

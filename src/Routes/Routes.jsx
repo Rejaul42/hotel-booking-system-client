@@ -46,7 +46,7 @@ const router = createBrowserRouter([
             {
                 path: "/:room_type/:id",
                 element: <PrivateRoute><UpdateBook></UpdateBook></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://hotel-booking-system-server.vercel.app/${params.id}`)
+                loader: ({ params }) => fetch(`https://hotel-booking-system-server.vercel.app/booked/${params.id}`)
             }
         ]
     }
