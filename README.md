@@ -8,5 +8,5 @@
 
 Server site repo: https://github.com/Rejaul42/hotel-booking-system-server
 
-live site: https://hotel-booking-system-3bf81.firebaseapp.com/
+live site: https://65795d6966c8e7692c1f8f9f--elaborate-beignet-5916f9.netlify.app/
 
